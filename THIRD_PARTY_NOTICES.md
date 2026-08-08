@@ -15,7 +15,7 @@ Those materials are not covered by the project-level rights-status notice.
 | Jinja2 | 3.1.6 | BSD-3-Clause | <https://github.com/pallets/jinja> |
 | python-dotenv | 1.2.2 | BSD-3-Clause | <https://github.com/theskumar/python-dotenv> |
 
-Transitive runtime versions are pinned in `requirements.lock`. Each package is
+Transitive runtime versions are pinned in `requirements-lock.txt`. Each package is
 governed by the license distributed with that package; this table is a concise
 inventory, not a replacement for those license texts.
 

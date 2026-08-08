@@ -1,4 +1,4 @@
-# Direct runtime requirements. Exact transitive versions are in requirements.lock.
+# Direct runtime requirements. Exact transitive versions are in requirements-lock.txt.
 fastapi==0.139.2
 httpx==0.28.1
 httpx-socks==0.11.0

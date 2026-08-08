@@ -14,8 +14,8 @@ RUN addgroup --system artflow \
     && mkdir -p /data \
     && chown artflow:artflow /data
 
-COPY requirements.lock ./
-RUN python -m pip install --no-cache-dir --requirement requirements.lock
+COPY requirements-lock.txt ./
+RUN python -m pip install --no-cache-dir --requirement requirements-lock.txt
 
 COPY app.py ./
 COPY templates ./templates

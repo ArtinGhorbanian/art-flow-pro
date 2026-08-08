@@ -78,7 +78,7 @@ Read the [architecture](docs/ARCHITECTURE.md),
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
-python -m pip install --requirement requirements.lock
+python -m pip install --requirement requirements-lock.txt
 Copy-Item .env.example .env
 python -m uvicorn app:app --host 127.0.0.1 --port 8000
 ```
@@ -135,7 +135,7 @@ python -m compileall -q app.py tests
 python -m coverage run --branch -m pytest -q -p no:cacheprovider
 python -m coverage report --show-missing --fail-under=58
 python -m bandit --recursive app.py --severity-level medium --confidence-level medium
-python -m pip_audit --requirement requirements.lock --no-deps --disable-pip `
+python -m pip_audit --requirement requirements-lock.txt --no-deps --disable-pip `
   --vulnerability-service osv --progress-spinner off
 ```
 
@@ -196,6 +196,7 @@ The [roadmap](ROADMAP.md) separates public-release gates from later product work
 ## Documentation map
 
 - [Demo script](docs/DEMO_SCRIPT.md)
+- [Private v0.1.1 release notes](docs/RELEASE_NOTES_v0.1.1.md)
 - [Private v0.1.0 release notes](docs/RELEASE_NOTES_v0.1.0.md)
 - [Changelog](CHANGELOG.md)
 - [Contributing](CONTRIBUTING.md)
@@ -216,7 +217,7 @@ Accordingly:
 - this repository must remain private;
 - no open-source license is granted;
 - no exclusive AIONEX copyright claim is made; and
-- this v0.1.0 tag is a private engineering/provenance checkpoint only.
+- these pre-release tags are private engineering/provenance checkpoints only.
 
 See [LICENSE](LICENSE), [NOTICE.md](NOTICE.md), and
 [Rights and release status](docs/RIGHTS_AND_RELEASE_STATUS.md). Third-party

@@ -1,5 +1,5 @@
 # Runtime dependency lock generated from the verified Python 3.12 environment.
-# Install with: python -m pip install -r requirements.lock
+# Install with: python -m pip install -r requirements-lock.txt
 annotated-doc==0.0.4
 annotated-types==0.7.0
 anyio==4.14.2

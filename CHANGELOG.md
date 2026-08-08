@@ -15,6 +15,20 @@ compatibility guarantees for this pre-release codebase.
   open-source or exclusive proprietary claim remain blocked by provenance,
   asset-origin, license, and naming clearance.
 
+## [0.1.1] - 2026-08-08
+
+### Changed
+
+- Renamed the exact runtime lock to `requirements-lock.txt`, a filename the
+  Dependabot Python fetcher recognizes when resolving requirement includes.
+- Kept the one-command development install while making the runtime lock
+  visible to automated dependency updates and dependency-graph processing.
+
+### Security
+
+- Updated the development-only pytest pin to 9.0.3, the first patched version
+  for GHSA-6w46-j5rx-g56g.
+
 ## [0.1.0] - 2026-08-08
 
 ### Added
@@ -77,4 +91,5 @@ compatibility guarantees for this pre-release codebase.
 - SQLite and process-local locks/limits support one application process only.
 - Browser export/print behavior requires target-browser validation.
 
+[0.1.1]: docs/RELEASE_NOTES_v0.1.1.md
 [0.1.0]: docs/RELEASE_NOTES_v0.1.0.md

@@ -1,8 +1,8 @@
--r requirements.lock
+-r requirements-lock.txt
 
 bandit==1.9.4
 coverage==7.15.2
 mypy==2.3.0
 pip-audit==2.10.1
-pytest==8.4.2
+pytest==9.0.3
 ruff==0.15.22
