@@ -1,0 +1,23 @@
+name: Feature request
+description: Propose an improvement grounded in a real user workflow.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What task is difficult today, and for whom?
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe success without prescribing an implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Privacy, accessibility, or compatibility constraints

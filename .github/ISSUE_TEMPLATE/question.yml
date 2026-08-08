@@ -1,0 +1,20 @@
+name: Usage question
+description: Ask about setup, configuration, or a documented workflow.
+title: "[Question]: "
+labels: [question]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: What are you trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you tried?
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: Never include an `.env` file, API key, resume, or private project data.
