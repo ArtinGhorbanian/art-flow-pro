@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="{{ theme }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="theme-color" content="#07090b" />
+  <meta name="description" content="Art Flow Pro — an AI-native design studio and live resume builder." />
+  <title>Art Flow Pro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+
+<body>
+  <!-- ───────────────────────── Icon sprite (single-file, no extra assets) ──── -->
+  <svg class="sprite" aria-hidden="true" focusable="false" width="0" height="0">
+    <defs>
+      <symbol id="i-cursor" viewBox="0 0 24 24"><path d="M5 4l6 16 2.5-6.5L20 11 5 4z"/></symbol>
+      <symbol id="i-type" viewBox="0 0 24 24"><path d="M5 6h14M5 6v-1M19 6v-1M12 6v13M9.5 19h5"/></symbol>
+      <symbol id="i-shape" viewBox="0 0 24 24"><rect x="4" y="4" width="11" height="11" rx="2"/><circle cx="16" cy="16" r="4.5"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17l4.5-4.5 4 4 3-3L20 17"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2z"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></symbol>
+      <symbol id="i-resume" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol>
+      <symbol id="i-design" viewBox="0 0 24 24"><path d="M12 3l8 5v8l-8 5-8-5V8l8-5z"/><path d="M12 8v8M8 10l8 4M16 10l-8 4"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v2.5M12 18.5V21M21 12h-2.5M5.5 12H3M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8M18.4 18.4l-1.8-1.8M7.4 7.4L5.6 5.6"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M22 12h-2.5M4.5 12H2M19.8 4.2l-1.8 1.8M6 18l-1.8 1.8M19.8 19.8L18 18M6 6L4.2 4.2"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.4 6.4 0 0 0 10.5 10.5z"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11M7.5 9.5L12 14l4.5-4.5M5 19h14"/></symbol>
+      <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 5a2 2 0 0 1 2-2h9l3 3v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5z"/><path d="M8 3v5h6V3M8 21v-6h8v6"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.6"/><circle cx="17" cy="6" r="2.6"/><circle cx="17" cy="18" r="2.6"/><path d="M8.3 10.8l6.4-3.6M8.3 13.2l6.4 3.6"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-7-7 16-2.5-6.5L4 12z"/></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+      <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 7L4 12l5 5M4 12h10a6 6 0 0 1 6 6"/></symbol>
+      <symbol id="i-redo" viewBox="0 0 24 24"><path d="M15 7l5 5-5 5M20 12H10a6 6 0 0 0-6 6"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14M9 7V5h6v2M7 7l1 13h8l1-13"/></symbol>
+      <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4.6 1.3c0 1.7-2.6 2.2-2.6 4M12 17.5h.01"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- Ambient crystal light behind everything -->
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__beam aurora__beam--a"></span>
+    <span class="aurora__beam aurora__beam--b"></span>
+    <span class="aurora__grain"></span>
+  </div>
+
+  <!-- ───────────────────────────────────── Home / Projects dashboard ───────── -->
+  <div class="home" id="afp-home">
+    <div class="home__inner">
+      <header class="home__head">
+        <div class="home__brand">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="26" height="26">
+              <path d="M16 3l11 6.5v13L16 29 5 22.5v-13L16 3z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M16 9l6 3.5v7L16 23l-6-3.5v-7L16 9z" fill="currentColor" opacity="0.18"/>
+              <path d="M16 3v6M16 23v6M5 9.5l5 3M22 12.5l5-3M5 22.5l5-3M22 19.5l5 3" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>
+            </svg>
+          </span>
+          <div class="home__title">
+            <h1 class="home__name">Art Flow <em>Pro</em></h1>
+            <p class="home__tag">Your creative &amp; career workspace</p>
+          </div>
+        </div>
+        <button class="btn btn--primary home__new" id="afp-new-project" type="button">
+          <svg class="ico"><use href="#i-plus"/></svg><span>New project</span>
+        </button>
+      </header>
+
+      <section class="home__body">
+        <h2 class="home__section">Your projects</h2>
+        <div class="projects__loading" id="afp-projects-loading" role="status">
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Loading projects…</span>
+        </div>
+        <div class="projects__error" id="afp-projects-error" role="alert" hidden>
+          <svg class="ico" aria-hidden="true"><use href="#i-help"/></svg>
+          <div>
+            <strong>Projects could not be loaded.</strong>
+            <p>Your work has not been removed. Check the connection and try again.</p>
+          </div>
+          <button class="btn btn--ghost" id="afp-projects-retry" type="button">Retry</button>
+        </div>
+        <div class="projects" id="afp-projects" aria-live="polite" hidden></div>
+        <div class="projects__empty" id="afp-projects-empty" hidden>
+          <svg class="ico ico--xl"><use href="#i-design"/></svg>
+          <p>No projects yet — create your first one to get started.</p>
+          <button class="btn btn--primary" id="afp-empty-new" type="button">
+            <svg class="ico"><use href="#i-plus"/></svg><span>New project</span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ───────────────────────────────────────────── App shell ──────────────── -->
+  <div class="app" id="app" data-view="design" aria-hidden="true" inert>
+
+    <!-- Top navigation ─────────────────────────────────────────────────────── -->
+    <header class="topbar glass" id="afp-topbar">
+      <div class="topbar__brand">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22">
+            <path d="M16 3l11 6.5v13L16 29 5 22.5v-13L16 3z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M16 9l6 3.5v7L16 23l-6-3.5v-7L16 9z" fill="currentColor" opacity="0.18"/>
+            <path d="M16 3v6M16 23v6M5 9.5l5 3M22 12.5l5-3M5 22.5l5-3M22 19.5l5 3" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>
+          </svg>
+        </span>
+        <span class="brand__name">Art Flow <em>Pro</em></span>
+      </div>
+
+      <div class="topbar__doc">
+        <button class="btn btn--ghost btn--sm topbar__back" id="afp-back-home" type="button" hidden>
+          ← Projects
+        </button>
+        <button class="doc__title" id="afp-doc-title" type="button" title="Rename project">
+          Untitled project
+        </button>
+        <span class="doc__sep" aria-hidden="true"></span>
+        <span class="doc__size mono" id="afp-doc-size" data-canvas-action title="Canvas size">1920 × 1080</span>
+        <div class="zoom" id="afp-zoom" data-canvas-action role="group" aria-label="Canvas zoom">
+          <button class="zoom__btn" data-zoom="out" type="button" aria-label="Zoom out">−</button>
+          <span class="zoom__value mono" id="afp-zoom-value">100%</span>
+          <button class="zoom__btn" data-zoom="in" type="button" aria-label="Zoom in">+</button>
+        </div>
+      </div>
+
+      <div class="topbar__actions">
+        <span class="doc__status" id="afp-save-status" role="status" aria-live="polite" data-state="saved">Saved</span>
+
+        <div class="history" data-canvas-action role="group" aria-label="Canvas history">
+          <button class="btn btn--icon" id="afp-undo" type="button" aria-label="Undo" disabled>
+            <svg class="ico"><use href="#i-undo"/></svg>
+          </button>
+          <button class="btn btn--icon" id="afp-redo" type="button" aria-label="Redo" disabled>
+            <svg class="ico"><use href="#i-redo"/></svg>
+          </button>
+        </div>
+
+        <button class="btn btn--icon" id="afp-theme-toggle" type="button" aria-label="Toggle theme" aria-pressed="false">
+          <svg class="ico ico--sun"><use href="#i-sun"/></svg>
+          <svg class="ico ico--moon"><use href="#i-moon"/></svg>
+        </button>
+
+        <button class="btn btn--ghost" id="afp-export" type="button" aria-label="Export design">
+          <svg class="ico"><use href="#i-download"/></svg>
+          <span id="afp-export-label">Export design</span>
+        </button>
+
+        <button class="btn btn--primary" id="afp-save" type="button" aria-label="Save project">
+          <svg class="ico"><use href="#i-save"/></svg>
+          <span id="afp-save-label">Save</span>
+        </button>
+
+        <button class="btn btn--icon" id="afp-open-settings" type="button" aria-label="Settings" aria-haspopup="dialog" aria-controls="afp-settings">
+          <svg class="ico"><use href="#i-gear"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Global workspace rail (far left) ────────────────────────────────────── -->
+    <nav class="rail glass" id="afp-rail" aria-label="Workspaces">
+      <div class="rail__group">
+        <button class="rail__btn is-active" data-view="design" type="button" aria-current="page">
+          <svg class="ico"><use href="#i-design"/></svg>
+          <span class="rail__label">Design</span>
+        </button>
+        <button class="rail__btn" data-view="resume" type="button">
+          <svg class="ico"><use href="#i-resume"/></svg>
+          <span class="rail__label">Resume</span>
+        </button>
+        <button class="rail__btn" data-view="copilot" type="button">
+          <svg class="ico"><use href="#i-spark"/></svg>
+          <span class="rail__label">Art Flow AI</span>
+        </button>
+      </div>
+
+      <div class="rail__group rail__group--end">
+        <button class="rail__btn" id="afp-help" type="button">
+          <svg class="ico"><use href="#i-help"/></svg>
+          <span class="rail__label">Help</span>
+        </button>
+        <button class="rail__btn rail__btn--mobile" id="afp-rail-settings" type="button" aria-haspopup="dialog" aria-controls="afp-settings">
+          <svg class="ico"><use href="#i-gear"/></svg>
+          <span class="rail__label">Settings</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Left dock: contextual tools / source ────────────────────────────────── -->
+    <aside class="dock dock--left glass" id="afp-dock-left">
+
+      <!-- DESIGN: tools -->
+      <section class="panel" data-panel="design">
+        <header class="panel__head">
+          <h2 class="panel__title">Tools</h2>
+        </header>
+        <div class="tools" id="afp-tools" role="toolbar" aria-label="Canvas tools">
+          <button class="tool is-active" data-tool="select" type="button" aria-pressed="true">
+            <svg class="ico"><use href="#i-cursor"/></svg><span>Select</span>
+          </button>
+          <button class="tool" data-tool="text" type="button" aria-pressed="false">
+            <svg class="ico"><use href="#i-type"/></svg><span>Text</span>
+          </button>
+          <button class="tool" data-tool="shape" type="button" aria-pressed="false">
+            <svg class="ico"><use href="#i-shape"/></svg><span>Shape</span>
+          </button>
+          <button class="tool" data-tool="image" type="button" aria-pressed="false">
+            <svg class="ico"><use href="#i-image"/></svg><span>Image</span>
+          </button>
+        </div>
+
+        <div class="panel__section" data-toolopts="shape" hidden>
+          <h3 class="panel__subtitle">Shape</h3>
+          <div class="seg" role="radiogroup" aria-label="Shape kind">
+            <button class="seg__opt is-active" data-shape="rect" type="button" role="radio" aria-checked="true">Rectangle</button>
+            <button class="seg__opt" data-shape="circle" type="button" role="radio" aria-checked="false">Circle</button>
+          </div>
+        </div>
+
+        <div class="panel__section" data-toolopts="image">
+          <h3 class="panel__subtitle">Generate image</h3>
+          <label class="field-group" for="afp-image-prompt">
+            <span class="field-label">Image description</span>
+            <textarea class="field field--area" id="afp-image-prompt" rows="3" maxlength="2000"
+              placeholder="E.g. frosted glass shard over deep teal, studio light"></textarea>
+          </label>
+          <div class="seg seg--full" role="radiogroup" aria-label="Placement">
+            <button class="seg__opt is-active" data-imgas="background" type="button" role="radio" aria-checked="true">Background</button>
+            <button class="seg__opt" data-imgas="shape" type="button" role="radio" aria-checked="false">Object</button>
+          </div>
+          <button class="btn btn--primary btn--block" id="afp-generate-image" type="button">
+            <svg class="ico"><use href="#i-spark"/></svg><span>Generate</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- RESUME: source -->
+      <section class="panel" data-panel="resume">
+        <header class="panel__head">
+          <h2 class="panel__title">Source</h2>
+        </header>
+        <div class="panel__section">
+          <label class="panel__subtitle" for="afp-resume-raw">Paste your resume</label>
+          <textarea class="field field--area field--tall" id="afp-resume-raw" rows="10" maxlength="20000"
+            placeholder="Paste raw resume text or LinkedIn export. The parser keeps your original language."></textarea>
+          <button class="btn btn--primary btn--block" id="afp-resume-parse" type="button">
+            <svg class="ico"><use href="#i-spark"/></svg><span>Parse with AI</span>
+          </button>
+          <p class="panel__hint">Structured fields appear in the center editor. Review parsed content before saving or publishing.</p>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Center stage ────────────────────────────────────────────────────────── -->
+    <main class="stage" id="afp-stage" tabindex="-1">
+
+      <div class="mobile-panel-bar glass" id="afp-mobile-panel-bar" aria-label="Editor panels">
+        <button class="btn btn--icon mobile-panel-bar__history" id="afp-mobile-undo" type="button" data-canvas-action aria-label="Undo" disabled>
+          <svg class="ico" aria-hidden="true"><use href="#i-undo"/></svg>
+        </button>
+        <button class="btn btn--ghost mobile-panel-bar__btn" id="afp-toggle-left" type="button"
+          aria-controls="afp-dock-left" aria-expanded="false">
+          <svg class="ico" aria-hidden="true"><use href="#i-layers"/></svg>
+          <span id="afp-toggle-left-label">Tools</span>
+        </button>
+        <button class="btn btn--ghost mobile-panel-bar__btn" id="afp-toggle-right" type="button"
+          aria-controls="afp-dock-right" aria-expanded="false">
+          <svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg>
+          <span id="afp-toggle-right-label">Properties</span>
+        </button>
+        <button class="btn btn--icon mobile-panel-bar__history" id="afp-mobile-redo" type="button" data-canvas-action aria-label="Redo" disabled>
+          <svg class="ico" aria-hidden="true"><use href="#i-redo"/></svg>
+        </button>
+      </div>
+
+      <!-- DESIGN: canvas + svg overlay + on-object toolbar -->
+      <section class="view view--design" data-view-panel="design">
+        <div class="canvas-wrap" id="afp-canvas-wrap">
+          <div class="canvas-frame" id="afp-canvas-frame">
+            <canvas id="afp-canvas" width="1920" height="1080" aria-label="Design canvas"></canvas>
+            <svg class="overlay" id="afp-overlay" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+          </div>
+
+          <!-- Floating, on-object contextual toolbar (positioned by JS) -->
+          <div class="floatbar glass" id="afp-floatbar" role="toolbar" aria-label="Selection" hidden>
+            <button class="floatbar__btn" data-act="fill" type="button" aria-label="Fill color">
+              <span class="swatch" id="afp-float-swatch"></span>
+            </button>
+            <span class="floatbar__sep"></span>
+            <button class="floatbar__btn" data-act="front" type="button" aria-label="Bring to front">
+              <svg class="ico"><use href="#i-layers"/></svg>
+            </button>
+            <button class="floatbar__btn" data-act="duplicate" type="button" aria-label="Duplicate">
+              <svg class="ico"><use href="#i-plus"/></svg>
+            </button>
+            <button class="floatbar__btn floatbar__btn--danger" data-act="delete" type="button" aria-label="Delete">
+              <svg class="ico"><use href="#i-trash"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESUME: structured editor + live preview -->
+      <section class="view view--resume" data-view-panel="resume">
+        <div class="resume">
+          <form class="resume__editor" id="afp-resume-editor" autocomplete="off">
+            <div class="resume__row">
+              <label class="field-group">
+                <span class="field-label">Full name</span>
+                <input class="field" type="text" id="afp-r-name" maxlength="200" placeholder="Ada Lovelace" />
+              </label>
+              <label class="field-group">
+                <span class="field-label">Title</span>
+                <input class="field" type="text" id="afp-r-title" maxlength="300" placeholder="Principal Engineer" />
+              </label>
+            </div>
+
+            <div class="resume__row resume__row--3">
+              <label class="field-group">
+                <span class="field-label">Email</span>
+                <input class="field" type="email" id="afp-r-email" maxlength="320" placeholder="you@studio.com" />
+              </label>
+              <label class="field-group">
+                <span class="field-label">Phone</span>
+                <input class="field" type="tel" id="afp-r-phone" maxlength="100" placeholder="+49 …" />
+              </label>
+              <label class="field-group">
+                <span class="field-label">Location</span>
+                <input class="field" type="text" id="afp-r-location" maxlength="300" placeholder="Nuremberg, DE" />
+              </label>
+            </div>
+
+            <label class="field-group">
+              <span class="field-label">Summary</span>
+              <textarea class="field field--area" id="afp-r-summary" rows="3" maxlength="8000"
+                placeholder="A short, senior-level statement of who you are and the impact you carry."></textarea>
+            </label>
+
+            <fieldset class="resume__set">
+              <legend>Experience</legend>
+              <div class="resume__list" id="afp-r-experience"></div>
+              <button class="btn btn--ghost btn--block" id="afp-r-add-exp" type="button">
+                <svg class="ico"><use href="#i-plus"/></svg><span>Add role</span>
+              </button>
+            </fieldset>
+
+            <fieldset class="resume__set">
+              <legend>Education</legend>
+              <div class="resume__list" id="afp-r-education"></div>
+              <button class="btn btn--ghost btn--block" id="afp-r-add-edu" type="button">
+                <svg class="ico"><use href="#i-plus"/></svg><span>Add school</span>
+              </button>
+            </fieldset>
+
+            <label class="field-group">
+              <span class="field-label">Skills</span>
+              <input class="field" type="text" id="afp-r-skills" maxlength="20100"
+                placeholder="Comma-separated — e.g. FastAPI, Async SQLAlchemy, Canvas" />
+            </label>
+          </form>
+
+          <div class="resume__preview" id="afp-resume-preview" role="region" aria-label="Resume preview" tabindex="0">
+            <div class="resume__preview-empty">
+              <svg class="ico ico--xl"><use href="#i-resume"/></svg>
+              <p>Your live preview renders here as you edit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COPILOT: full-surface chat lives in #afp-chat (expanded by the rail) -->
+      <section class="view view--copilot" data-view-panel="copilot">
+        <div class="copilot-anchor" id="afp-copilot-anchor"></div>
+      </section>
+    </main>
+
+    <!-- Right dock: inspector / AI tools ───────────────────────────────────── -->
+    <aside class="dock dock--right glass" id="afp-dock-right">
+
+      <!-- DESIGN: properties + layers -->
+      <section class="panel" data-panel="design">
+        <header class="panel__head">
+          <h2 class="panel__title">Properties</h2>
+        </header>
+
+        <div class="panel__section">
+          <h3 class="panel__subtitle">Canvas</h3>
+          <div class="seg seg--wrap" role="radiogroup" aria-label="Canvas preset">
+            <button class="seg__opt is-active" data-preset="16:9" type="button" role="radio" aria-checked="true">16:9</button>
+            <button class="seg__opt" data-preset="square" type="button" role="radio" aria-checked="false">Square</button>
+            <button class="seg__opt" data-preset="story" type="button" role="radio" aria-checked="false">Story</button>
+            <button class="seg__opt" data-preset="4k" type="button" role="radio" aria-checked="false">4K</button>
+          </div>
+          <label class="field-group field-group--inline">
+            <span class="field-label">Background</span>
+            <span class="color">
+              <input class="color__input" type="color" id="afp-bg-color" value="#0b0e11" />
+              <span class="color__chip mono" id="afp-bg-hex">#0B0E11</span>
+            </span>
+          </label>
+        </div>
+
+        <div class="panel__section" id="afp-props" data-empty="true">
+          <h3 class="panel__subtitle">Selection</h3>
+          <p class="panel__hint" data-when="empty">Select an object on the canvas to edit it.</p>
+
+          <div class="props-grid" data-when="object" hidden>
+            <label class="field-group">
+              <span class="field-label">X</span>
+              <input class="field field--num mono" type="number" id="afp-prop-x" value="0" />
+            </label>
+            <label class="field-group">
+              <span class="field-label">Y</span>
+              <input class="field field--num mono" type="number" id="afp-prop-y" value="0" />
+            </label>
+            <label class="field-group">
+              <span class="field-label">W</span>
+              <input class="field field--num mono" type="number" id="afp-prop-w" value="0" />
+            </label>
+            <label class="field-group">
+              <span class="field-label">H</span>
+              <input class="field field--num mono" type="number" id="afp-prop-h" value="0" />
+            </label>
+            <label class="field-group field-group--span">
+              <span class="field-label">Fill</span>
+              <span class="color">
+                <input class="color__input" type="color" id="afp-prop-fill" value="#7fd5e8" />
+                <span class="color__chip mono" id="afp-prop-fill-hex">#7FD5E8</span>
+              </span>
+            </label>
+            <label class="field-group field-group--span">
+              <span class="field-label">Opacity</span>
+              <input class="range" type="range" id="afp-prop-opacity" min="0" max="100" value="100" />
+            </label>
+          </div>
+        </div>
+
+        <div class="panel__section panel__section--grow">
+          <h3 class="panel__subtitle">Layers</h3>
+          <ul class="layers" id="afp-layers" aria-label="Layers"></ul>
+        </div>
+      </section>
+
+      <!-- RESUME: AI tools -->
+      <section class="panel" data-panel="resume">
+        <header class="panel__head">
+          <h2 class="panel__title">AI tools</h2>
+        </header>
+
+        <div class="panel__section">
+          <label class="field-group">
+            <span class="field-label">Target role <span class="field-opt">(optional)</span></span>
+            <input class="field" type="text" id="afp-r-target" maxlength="200" placeholder="Senior Backend Engineer" />
+          </label>
+        </div>
+
+        <div class="panel__section toolcards">
+          <button class="toolcard" id="afp-ai-summary" type="button">
+            <span class="toolcard__icon"><svg class="ico"><use href="#i-spark"/></svg></span>
+            <span class="toolcard__text">
+              <strong>Polish summary</strong>
+              <small>Rewrite as a senior brand statement.</small>
+            </span>
+            <svg class="ico toolcard__go"><use href="#i-chevron"/></svg>
+          </button>
+
+          <button class="toolcard" id="afp-ai-bullets" type="button">
+            <span class="toolcard__icon"><svg class="ico"><use href="#i-spark"/></svg></span>
+            <span class="toolcard__text">
+              <strong>Tighten bullets</strong>
+              <small>Concise, impact-focused phrasing for your review.</small>
+            </span>
+            <svg class="ico toolcard__go"><use href="#i-chevron"/></svg>
+          </button>
+
+          <button class="toolcard" id="afp-ai-keywords" type="button">
+            <span class="toolcard__icon"><svg class="ico"><use href="#i-spark"/></svg></span>
+            <span class="toolcard__text">
+              <strong>Suggest keywords</strong>
+              <small>Surface missing ATS terms for your field.</small>
+            </span>
+            <svg class="ico toolcard__go"><use href="#i-chevron"/></svg>
+          </button>
+        </div>
+
+        <div class="panel__section">
+          <h3 class="panel__subtitle">Adjust tone</h3>
+          <div class="seg seg--wrap" role="radiogroup" aria-label="Tone">
+            <button class="seg__opt is-active" data-tone="professional" type="button" role="radio" aria-checked="true">Professional</button>
+            <button class="seg__opt" data-tone="confident" type="button" role="radio" aria-checked="false">Confident</button>
+            <button class="seg__opt" data-tone="modern" type="button" role="radio" aria-checked="false">Modern</button>
+          </div>
+          <button class="btn btn--ghost btn--block" id="afp-ai-tone" type="button">
+            <svg class="ico"><use href="#i-spark"/></svg><span>Apply tone to summary</span>
+          </button>
+        </div>
+
+        <div class="panel__section panel__section--grow"></div>
+
+        <div class="panel__footer">
+          <p class="panel__hint">Publishing creates a public link containing the contact details shown in your preview. You can revoke it from this device while your owner session remains available.</p>
+          <button class="btn btn--primary btn--block" id="afp-resume-publish" type="button">
+            <svg class="ico"><use href="#i-share"/></svg><span>Publish live page</span>
+          </button>
+          <div class="publish-result" id="afp-resume-link" aria-live="polite" hidden>
+            <p>Live page: <a id="afp-resume-live-url" target="_blank" rel="noopener"></a></p>
+            <p class="publish-result__expiry" id="afp-resume-expiry"></p>
+            <button class="btn btn--danger btn--block" id="afp-resume-revoke" type="button" hidden>Revoke public link</button>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Floating AI Copilot surface (state 0 launcher / 1 compact / 2 expanded) ─ -->
+    <section class="chat glass" id="afp-chat" data-state="1" aria-label="Art Flow AI">
+      <header class="chat__head" id="afp-chat-head">
+        <span class="chat__title">
+          <svg class="ico"><use href="#i-spark"/></svg>
+          <span>Art Flow AI</span>
+        </span>
+        <div class="chat__head-actions">
+          <button class="btn btn--icon btn--sm" id="afp-chat-expand" type="button" aria-label="Expand Art Flow AI" aria-expanded="false">
+            <svg class="ico"><use href="#i-chevron"/></svg>
+          </button>
+          <button class="btn btn--icon btn--sm" id="afp-chat-collapse" type="button" aria-label="Minimize">
+            <svg class="ico"><use href="#i-close"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="chat__log" id="afp-chat-log" role="log" aria-live="polite">
+        <div class="chat__intro">
+          <p class="chat__intro-title">Tell me what to make.</p>
+          <p class="chat__intro-sub">Try: <button class="chip" data-suggest="Make the background a deep teal gradient" type="button">a deep teal gradient</button> <button class="chip" data-suggest="Add a bold title that says Studio at the center" type="button">a bold centered title</button> <button class="chip" data-suggest="Generate a frosted glass texture as the background" type="button">a frosted glass texture</button></p>
+        </div>
+      </div>
+
+      <form class="chat__composer" id="afp-chat-form">
+        <label class="sr-only" for="afp-chat-input">Message Art Flow AI</label>
+        <textarea class="chat__input" id="afp-chat-input" rows="1" maxlength="8000"
+          placeholder="Describe an edit, ask a question, or generate an image…"></textarea>
+        <button class="chat__send" id="afp-chat-send" type="submit" aria-label="Send">
+          <svg class="ico"><use href="#i-send"/></svg>
+        </button>
+      </form>
+    </section>
+
+    <!-- Collapsed launcher shown when chat state = 0 -->
+    <button class="chat-launcher glass" id="afp-chat-launcher" type="button" aria-label="Open Art Flow AI" aria-controls="afp-chat" aria-expanded="false" hidden>
+      <svg class="ico"><use href="#i-spark"/></svg>
+    </button>
+
+    <button class="dock-scrim" id="afp-dock-scrim" type="button" aria-label="Close editor panel" hidden></button>
+  </div>
+
+  <!-- ───────────────────────────────── Settings modal ─────────────────────── -->
+  <dialog class="modal" id="afp-settings" aria-labelledby="afp-settings-title">
+    <div class="modal__panel glass">
+      <header class="modal__head">
+        <h2 class="modal__title" id="afp-settings-title">Settings</h2>
+        <button class="btn btn--icon" id="afp-close-settings" type="button" aria-label="Close">
+          <svg class="ico"><use href="#i-close"/></svg>
+        </button>
+      </header>
+
+      <div class="modal__body">
+        <div class="setting">
+          <div class="setting__text">
+            <strong>Appearance</strong>
+            <small>Theme persists across sessions.</small>
+          </div>
+          <div class="seg" role="radiogroup" aria-label="Theme">
+            <button class="seg__opt" data-set-theme="dark" type="button" role="radio" aria-checked="true">Dark</button>
+            <button class="seg__opt" data-set-theme="light" type="button" role="radio" aria-checked="false">Light</button>
+          </div>
+        </div>
+
+        <div class="setting">
+          <div class="setting__text">
+            <strong>Export format</strong>
+            <small>Used by the Export button.</small>
+          </div>
+          <div class="seg" role="radiogroup" aria-label="Export format">
+            <button class="seg__opt is-active" data-export="png" type="button" role="radio" aria-checked="true">PNG (canvas size)</button>
+            <button class="seg__opt" data-export="pdf" type="button" role="radio" aria-checked="false">PDF</button>
+          </div>
+        </div>
+
+        <div class="setting">
+          <div class="setting__text">
+            <strong id="afp-motion-label">Motion</strong>
+            <small id="afp-motion-description">Reduce animation across the studio.</small>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="afp-reduce-motion" aria-labelledby="afp-motion-label" aria-describedby="afp-motion-description" />
+            <span class="switch__track"><span class="switch__thumb"></span></span>
+          </label>
+        </div>
+
+        <div class="setting setting--about">
+          <div class="setting__text">
+            <strong>About Art Flow Pro</strong>
+            <small>An AIONEX project</small>
+          </div>
+        </div>
+      </div>
+
+      <footer class="modal__foot">
+        <button class="btn btn--ghost" id="afp-settings-done" type="button">Done</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- ───────────────────────────────── Help modal ─────────────────────────── -->
+  <dialog class="modal" id="afp-help-modal" aria-labelledby="afp-help-title">
+    <div class="modal__panel glass">
+      <header class="modal__head">
+        <h2 class="modal__title" id="afp-help-title">Help &amp; shortcuts</h2>
+        <button class="btn btn--icon" id="afp-close-help" type="button" aria-label="Close">
+          <svg class="ico"><use href="#i-close"/></svg>
+        </button>
+      </header>
+
+      <div class="modal__body">
+        <h3 class="panel__subtitle">Workspaces</h3>
+        <p class="panel__hint"><strong>Design</strong> — a canvas for layouts, shapes, text, and AI-generated images.</p>
+        <p class="panel__hint"><strong>Resume</strong> — build a structured resume and publish a live, shareable AI resume.</p>
+        <p class="panel__hint"><strong>Art Flow AI</strong> — chat that edits the canvas for you. Try “add a bold centered title” or “make the background a deep blue gradient”.</p>
+
+        <h3 class="panel__subtitle" style="margin-top:18px">Images</h3>
+        <p class="panel__hint">Open the <strong>Generate image</strong> tool, or just ask Art Flow AI, to create a background or a movable image from a description.</p>
+
+        <h3 class="panel__subtitle" style="margin-top:18px">Shortcuts</h3>
+        <p class="panel__hint">⌘ / Ctrl + Z — undo · ⌘ / Ctrl + Shift + Z — redo</p>
+        <p class="panel__hint">⌘ / Ctrl + scroll — zoom · Double-click text — edit · Delete — remove selection</p>
+      </div>
+
+      <footer class="modal__foot">
+        <button class="btn btn--ghost" id="afp-help-done" type="button">Got it</button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- ─────────────────────────────── New project modal ────────────────────── -->
+  <!-- Public resume privacy confirmation -->
+  <dialog class="modal" id="afp-publish-confirm" aria-labelledby="afp-publish-title" aria-describedby="afp-publish-description">
+    <div class="modal__panel glass">
+      <header class="modal__head">
+        <h2 class="modal__title" id="afp-publish-title">Publish this resume?</h2>
+        <button class="btn btn--icon" id="afp-publish-close" type="button" aria-label="Close">
+          <svg class="ico"><use href="#i-close"/></svg>
+        </button>
+      </header>
+      <div class="modal__body modal__body--prose">
+        <p id="afp-publish-description">Anyone with the link can view the resume details currently shown, including contact information. The link expires automatically and can be revoked from this owner session.</p>
+        <p class="privacy-note"><strong>Before publishing:</strong> remove any phone number, email, location, or work detail you do not want shared publicly.</p>
+      </div>
+      <footer class="modal__foot modal__foot--split">
+        <button class="btn btn--ghost" id="afp-publish-cancel" type="button">Cancel</button>
+        <button class="btn btn--primary" id="afp-publish-confirm-action" type="button">
+          <svg class="ico"><use href="#i-share"/></svg><span>Publish public link</span>
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="afp-new-project-modal" aria-labelledby="afp-np-title">
+    <div class="modal__panel glass">
+      <header class="modal__head">
+        <h2 class="modal__title" id="afp-np-title">New project</h2>
+        <button class="btn btn--icon" id="afp-np-close" type="button" aria-label="Close">
+          <svg class="ico"><use href="#i-close"/></svg>
+        </button>
+      </header>
+
+      <div class="modal__body">
+        <label class="field-group">
+          <span class="field-label">Project name</span>
+          <input class="field" type="text" id="afp-np-name" maxlength="120" placeholder="Untitled project" />
+        </label>
+
+        <span class="field-label" style="margin-top:6px">Start with</span>
+        <div class="np-types" id="afp-np-types" role="radiogroup" aria-label="Project type">
+          <button class="np-type is-active" data-type="design" type="button" role="radio" aria-checked="true">
+            <span class="np-type__icon"><svg class="ico"><use href="#i-design"/></svg></span>
+            <span class="np-type__text">
+              <strong>Graphic Design Canvas</strong>
+              <small>Layouts, shapes, text, AI images.</small>
+            </span>
+          </button>
+          <button class="np-type" data-type="resume" type="button" role="radio" aria-checked="false">
+            <span class="np-type__icon"><svg class="ico"><use href="#i-resume"/></svg></span>
+            <span class="np-type__text">
+              <strong>ATS Resume Builder</strong>
+              <small>Structured resume + live AI resume.</small>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <footer class="modal__foot">
+        <button class="btn btn--ghost" id="afp-np-cancel" type="button">Cancel</button>
+        <button class="btn btn--primary" id="afp-np-create" type="button">
+          <svg class="ico"><use href="#i-spark"/></svg><span>Create</span>
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- Toast region -->
+  <div class="toasts" id="afp-toasts" role="status" aria-live="polite"></div>
+
+  <script src="/static/script.js" defer></script>
+</body>
+</html>

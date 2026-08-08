@@ -1,0 +1,1898 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#071216" />
+  <meta name="referrer" content="no-referrer" />
+  <meta
+    name="description"
+    content="A published professional resume with an assistant grounded in the resume details."
+  />
+  <title>Published resume — Art Flow Pro</title>
+
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #edf2f3;
+      --surface: #ffffff;
+      --surface-soft: #f5f8f9;
+      --ink: #12232b;
+      --muted: #50626b;
+      --line: #c9d4d8;
+      --line-strong: #a9b9bf;
+      --deep: #071216;
+      --deep-soft: #10272e;
+      --deep-muted: #c5d4d8;
+      --cyan: #9beaf2;
+      --cyan-dark: #075963;
+      --focus: #0067c5;
+      --public-bg: #e8f6f0;
+      --public-ink: #194c3b;
+      --public-line: #9dccb8;
+      --error-bg: #fff1f1;
+      --error-ink: #842525;
+      --error-line: #e2aaaa;
+      --shadow: 0 20px 55px rgba(7, 18, 22, 0.1);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --content-width: 1240px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-width: 320px;
+      background: var(--page);
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(155, 234, 242, 0.15), transparent 30rem),
+        var(--page);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    textarea,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      touch-action: manipulation;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    button:disabled,
+    textarea:disabled {
+      cursor: not-allowed;
+    }
+
+    a {
+      color: var(--cyan-dark);
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 0.08em;
+    }
+
+    a:hover {
+      text-decoration-thickness: 0.14em;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      transform: translateY(-160%);
+      transition: transform 180ms ease-out;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .masthead {
+      position: relative;
+      overflow: hidden;
+      background: var(--deep);
+      color: #ffffff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .masthead::after {
+      position: absolute;
+      right: -8rem;
+      bottom: -15rem;
+      width: 31rem;
+      height: 31rem;
+      border: 1px solid rgba(155, 234, 242, 0.13);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 4rem rgba(155, 234, 242, 0.025),
+        0 0 0 9rem rgba(155, 234, 242, 0.018);
+      content: "";
+      pointer-events: none;
+    }
+
+    .masthead__inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: min(100% - 40px, var(--content-width));
+      min-height: 80px;
+      margin-inline: auto;
+      padding-top: env(safe-area-inset-top);
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      gap: 12px;
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .brand__mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border: 1px solid rgba(155, 234, 242, 0.36);
+      border-radius: 10px;
+      background: rgba(155, 234, 242, 0.08);
+      color: var(--cyan);
+    }
+
+    .brand__name em {
+      color: var(--cyan);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .published-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 6px 12px;
+      gap: 8px;
+      border: 1px solid rgba(155, 234, 242, 0.28);
+      border-radius: 999px;
+      color: #e8f9fb;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .published-label__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 4px rgba(155, 234, 242, 0.12);
+    }
+
+    .page-shell {
+      width: min(100% - 40px, var(--content-width));
+      margin-inline: auto;
+      padding-block: 32px 64px;
+    }
+
+    .public-note {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      margin-bottom: 24px;
+      padding: 18px 20px;
+      gap: 14px;
+      border: 1px solid var(--public-line);
+      border-radius: var(--radius-md);
+      background: var(--public-bg);
+      color: var(--public-ink);
+    }
+
+    .public-note__icon {
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(25, 76, 59, 0.1);
+    }
+
+    .public-note h2 {
+      margin: 0 0 2px;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .public-note p {
+      max-width: 92ch;
+      margin: 0;
+      font-size: 0.94rem;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 390px);
+      align-items: start;
+      gap: 24px;
+    }
+
+    .resume-card,
+    .chat-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .resume-card {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .resume-content {
+      padding: clamp(28px, 5vw, 64px);
+    }
+
+    .profile-header {
+      padding-bottom: clamp(30px, 5vw, 56px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--cyan-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .candidate-name {
+      max-width: 16ch;
+      margin: 0;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.5rem, 7vw, 5.35rem);
+      font-weight: 500;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+      overflow-wrap: anywhere;
+    }
+
+    .candidate-title {
+      max-width: 45ch;
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .resume-sections {
+      display: grid;
+      gap: 0;
+    }
+
+    .resume-section {
+      display: grid;
+      grid-template-columns: minmax(120px, 0.28fr) minmax(0, 1fr);
+      padding-block: clamp(28px, 4vw, 42px);
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .resume-section:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .resume-section__title {
+      margin: 0;
+      color: var(--cyan-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .resume-section__body {
+      min-width: 0;
+    }
+
+    .summary-copy {
+      max-width: 72ch;
+      margin: 0;
+      color: #263a43;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .timeline {
+      display: grid;
+      margin: 0;
+      padding: 0;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .timeline__item {
+      position: relative;
+      min-width: 0;
+      padding-left: 22px;
+    }
+
+    .timeline__item::before {
+      position: absolute;
+      top: 0.58rem;
+      left: 0;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan-dark);
+      box-shadow: 0 0 0 5px rgba(7, 89, 99, 0.1);
+      content: "";
+    }
+
+    .item-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      gap: 16px;
+    }
+
+    .item-heading h3 {
+      min-width: 0;
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.08rem;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .item-date {
+      flex: 0 0 auto;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .item-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .bullet-list {
+      display: grid;
+      margin: 16px 0 0;
+      padding-left: 1.15rem;
+      gap: 8px;
+      color: #31464f;
+    }
+
+    .bullet-list li {
+      padding-left: 4px;
+      overflow-wrap: anywhere;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      gap: 9px;
+      list-style: none;
+    }
+
+    .skills-list li {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: #263b44;
+      font-size: 0.88rem;
+      font-weight: 650;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 0;
+      gap: 16px 24px;
+    }
+
+    .contact-list__item {
+      min-width: 0;
+    }
+
+    .contact-list dt {
+      margin: 0 0 2px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .contact-list dd {
+      margin: 0;
+      color: var(--ink);
+      overflow-wrap: anywhere;
+    }
+
+    .empty-copy {
+      max-width: 60ch;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .loading-state {
+      min-height: 680px;
+      padding: clamp(28px, 5vw, 64px);
+    }
+
+    .skeleton {
+      position: relative;
+      overflow: hidden;
+      border-radius: 7px;
+      background: #e3e9eb;
+    }
+
+    .skeleton::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, transparent 20%, rgba(255, 255, 255, 0.72) 48%, transparent 76%);
+      content: "";
+      transform: translateX(-100%);
+      animation: shimmer 1.4s ease-in-out infinite;
+    }
+
+    .skeleton--label {
+      width: 120px;
+      height: 12px;
+      margin-bottom: 22px;
+    }
+
+    .skeleton--name {
+      width: min(78%, 520px);
+      height: 72px;
+      margin-bottom: 18px;
+    }
+
+    .skeleton--title {
+      width: min(48%, 320px);
+      height: 22px;
+      margin-bottom: 64px;
+    }
+
+    .skeleton--line {
+      width: 100%;
+      height: 14px;
+      margin-bottom: 12px;
+    }
+
+    .skeleton--line:nth-of-type(5) {
+      width: 88%;
+    }
+
+    .skeleton--line:nth-of-type(6) {
+      width: 65%;
+    }
+
+    @keyframes shimmer {
+      to {
+        transform: translateX(100%);
+      }
+    }
+
+    .load-error {
+      display: grid;
+      min-height: 520px;
+      padding: 40px;
+      place-content: center;
+      text-align: center;
+    }
+
+    .load-error__icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 18px;
+      place-items: center;
+      border: 1px solid var(--error-line);
+      border-radius: 50%;
+      background: var(--error-bg);
+      color: var(--error-ink);
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .load-error h2 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+    }
+
+    .load-error p {
+      max-width: 46ch;
+      margin: 0 auto 22px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      font-size: 0.94rem;
+      font-weight: 750;
+      line-height: 1.2;
+      transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        opacity 180ms ease;
+    }
+
+    .button--primary {
+      background: var(--deep-soft);
+      color: #ffffff;
+    }
+
+    .button--primary:hover:not(:disabled) {
+      background: #173740;
+    }
+
+    .button--secondary {
+      border-color: var(--line-strong);
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .button--secondary:hover:not(:disabled) {
+      background: var(--surface-soft);
+    }
+
+    .button:active:not(:disabled) {
+      opacity: 0.78;
+    }
+
+    .button:disabled {
+      opacity: 0.48;
+    }
+
+    .chat-card {
+      position: sticky;
+      top: 20px;
+      overflow: hidden;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 22px 22px 18px;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--deep);
+      color: #ffffff;
+    }
+
+    .chat-header__label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-header__mark {
+      display: grid;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 10px;
+      background: rgba(155, 234, 242, 0.11);
+      color: var(--cyan);
+    }
+
+    .chat-header h2 {
+      margin: 0;
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
+
+    .chat-header p {
+      margin: 2px 0 0;
+      color: var(--deep-muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .clear-button {
+      min-width: 60px;
+      min-height: 44px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 9px;
+      background: transparent;
+      color: #ffffff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: background-color 180ms ease, opacity 180ms ease;
+    }
+
+    .clear-button:hover:not(:disabled) {
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .clear-button:disabled {
+      opacity: 0.45;
+    }
+
+    .chat-privacy {
+      margin: 16px 18px 0;
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-soft);
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .chat-log {
+      display: flex;
+      flex-direction: column;
+      height: clamp(300px, 42vh, 460px);
+      min-height: 300px;
+      padding: 18px;
+      gap: 13px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-gutter: stable;
+    }
+
+    .message {
+      display: grid;
+      max-width: 92%;
+      gap: 4px;
+    }
+
+    .message--user {
+      align-self: end;
+    }
+
+    .message--assistant {
+      align-self: start;
+    }
+
+    .message__author {
+      padding-inline: 4px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .message--user .message__author {
+      text-align: right;
+    }
+
+    .message__body {
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 13px 13px 13px 4px;
+      background: var(--surface-soft);
+      color: var(--ink);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .message--user .message__body {
+      border-color: var(--deep-soft);
+      border-radius: 13px 13px 4px 13px;
+      background: var(--deep-soft);
+      color: #ffffff;
+    }
+
+    .message--error .message__body {
+      border-color: var(--error-line);
+      background: var(--error-bg);
+      color: var(--error-ink);
+    }
+
+    .message--pending .message__body::after {
+      display: inline-block;
+      width: 0.7em;
+      height: 0.7em;
+      margin-left: 7px;
+      border: 2px solid rgba(7, 89, 99, 0.22);
+      border-top-color: var(--cyan-dark);
+      border-radius: 50%;
+      content: "";
+      animation: spin 800ms linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .suggestions {
+      display: flex;
+      padding: 0 18px 14px;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .suggestion {
+      flex: 0 0 auto;
+      min-height: 40px;
+      padding: 8px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #ffffff;
+      color: #29414b;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background-color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+    }
+
+    .suggestion:hover:not(:disabled) {
+      border-color: var(--line-strong);
+      background: var(--surface-soft);
+    }
+
+    .suggestion:disabled {
+      opacity: 0.45;
+    }
+
+    .chat-form {
+      padding: 16px 18px 18px;
+      border-top: 1px solid var(--line);
+      background: var(--surface-soft);
+    }
+
+    .chat-form label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ink);
+      font-size: 0.84rem;
+      font-weight: 750;
+    }
+
+    .chat-input {
+      display: block;
+      width: 100%;
+      min-height: 92px;
+      max-height: 180px;
+      resize: vertical;
+      padding: 11px 12px;
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    .chat-input::placeholder {
+      color: #687981;
+      opacity: 1;
+    }
+
+    .chat-input:disabled {
+      background: #e9edef;
+      opacity: 0.78;
+    }
+
+    .chat-helper-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 6px 1px 12px;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      line-height: 1.4;
+    }
+
+    .chat-count {
+      flex: 0 0 auto;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .chat-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .chat-status {
+      min-height: 1.4em;
+      margin: 10px 1px 0;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.4;
+    }
+
+    .site-footer {
+      padding: 20px max(20px, env(safe-area-inset-right)) max(30px, env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .noscript {
+      width: min(100% - 40px, 720px);
+      margin: 24px auto;
+      padding: 18px;
+      border: 1px solid var(--error-line);
+      border-radius: 12px;
+      background: var(--error-bg);
+      color: var(--error-ink);
+    }
+
+    @media (max-width: 920px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chat-card {
+        position: static;
+      }
+
+      .chat-log {
+        height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .masthead__inner,
+      .page-shell {
+        width: min(100% - 24px, var(--content-width));
+      }
+
+      .masthead__inner {
+        min-height: 72px;
+        gap: 12px;
+      }
+
+      .brand__name {
+        font-size: 0.94rem;
+      }
+
+      .published-label {
+        padding-inline: 10px;
+        font-size: 0.7rem;
+      }
+
+      .page-shell {
+        padding-block: 18px 40px;
+      }
+
+      .public-note {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+
+      .public-note__icon {
+        display: none;
+      }
+
+      .resume-card,
+      .chat-card {
+        border-radius: 18px;
+      }
+
+      .resume-content,
+      .loading-state {
+        padding: 26px 20px;
+      }
+
+      .loading-state {
+        min-height: 560px;
+      }
+
+      .skeleton--name {
+        height: 54px;
+      }
+
+      .resume-section {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .item-heading {
+        display: grid;
+        gap: 2px;
+      }
+
+      .item-date {
+        white-space: normal;
+      }
+
+      .contact-list {
+        grid-template-columns: 1fr;
+      }
+
+      .chat-header {
+        padding-inline: 18px;
+      }
+
+      .chat-log {
+        height: 390px;
+        min-height: 280px;
+      }
+
+      .message {
+        max-width: 96%;
+      }
+
+      .load-error {
+        min-height: 420px;
+        padding: 28px 20px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .brand__name {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+      }
+
+      .published-label {
+        letter-spacing: 0.03em;
+      }
+
+      .chat-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .chat-actions .button:only-child {
+        grid-column: 2;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media (forced-colors: active) {
+      .published-label__dot,
+      .timeline__item::before {
+        border: 1px solid currentColor;
+      }
+
+      .button,
+      .suggestion,
+      .clear-button {
+        border: 1px solid ButtonText;
+      }
+    }
+
+    @media print {
+      :root {
+        --page: #ffffff;
+        --surface: #ffffff;
+        --ink: #000000;
+        --muted: #333333;
+        --line: #b8b8b8;
+        --cyan-dark: #174d54;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      .masthead,
+      .public-note,
+      .chat-card,
+      .site-footer,
+      .skip-link {
+        display: none !important;
+      }
+
+      .page-shell {
+        width: 100%;
+        padding: 0;
+      }
+
+      .content-grid {
+        display: block;
+      }
+
+      .resume-card {
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .resume-content {
+        padding: 0;
+      }
+
+      .resume-section,
+      .timeline__item {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Skip to resume</a>
+
+  <header class="masthead">
+    <div class="masthead__inner">
+      <a class="brand" href="/" aria-label="Art Flow Pro home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+            <path d="M16 3 27 9.5v13L16 29 5 22.5v-13L16 3Z" stroke="currentColor" stroke-width="1.5" />
+            <path d="m16 9 6 3.5v7L16 23l-6-3.5v-7L16 9Z" fill="currentColor" opacity="0.22" />
+            <path d="M16 3v6m0 14v6M5 9.5l5 3m12 0 5-3M5 22.5l5-3m12 0 5 3" stroke="currentColor" stroke-width="1.2" opacity="0.68" />
+          </svg>
+        </span>
+        <span class="brand__name">Art Flow <em>Pro</em></span>
+      </a>
+
+      <div class="published-label" aria-label="Published public resume">
+        <span class="published-label__dot" aria-hidden="true"></span>
+        Public resume
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell" id="main-content" tabindex="-1">
+    <section class="public-note" aria-labelledby="public-note-title">
+      <span class="public-note__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" />
+          <path d="M3.6 9h16.8M3.6 15h16.8M12 3c2.1 2.4 3.2 5.4 3.2 9S14.1 18.6 12 21c-2.1-2.4-3.2-5.4-3.2-9S9.9 5.4 12 3Z" />
+        </svg>
+      </span>
+      <div>
+        <h2 id="public-note-title">This resume is published</h2>
+        <p>
+          Anyone with this link can view every resume detail below, including any contact information the candidate chose to publish. The page does not expose the candidate's editor or unpublished projects. Avoid entering private or sensitive information in chat.
+        </p>
+      </div>
+    </section>
+
+    <div class="content-grid">
+      <article class="resume-card" id="resume-card" aria-busy="true" aria-labelledby="candidate-name">
+        <div class="loading-state" id="resume-loading" role="status">
+          <span class="sr-only">Loading published resume…</span>
+          <div class="skeleton skeleton--label" aria-hidden="true"></div>
+          <div class="skeleton skeleton--name" aria-hidden="true"></div>
+          <div class="skeleton skeleton--title" aria-hidden="true"></div>
+          <div class="skeleton skeleton--line" aria-hidden="true"></div>
+          <div class="skeleton skeleton--line" aria-hidden="true"></div>
+          <div class="skeleton skeleton--line" aria-hidden="true"></div>
+        </div>
+
+        <section class="load-error" id="resume-error" role="alert" hidden>
+          <div class="load-error__icon" aria-hidden="true">!</div>
+          <h2 id="resume-error-title">Resume unavailable</h2>
+          <p id="resume-error-copy">The published resume could not be loaded.</p>
+          <div>
+            <button class="button button--secondary" id="resume-retry" type="button">Try again</button>
+          </div>
+        </section>
+
+        <div class="resume-content" id="resume-content" hidden>
+          <header class="profile-header">
+            <p class="eyebrow">Professional profile</p>
+            <h1 class="candidate-name" id="candidate-name">Published resume</h1>
+            <p class="candidate-title" id="candidate-title" hidden></p>
+          </header>
+          <div class="resume-sections" id="resume-sections"></div>
+        </div>
+      </article>
+
+      <aside class="chat-card" aria-labelledby="chat-title">
+        <header class="chat-header">
+          <div class="chat-header__label">
+            <span class="chat-header__mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 14a4 4 0 0 1-4 4H8l-4 3v-7a4 4 0 0 1-1-2.6V7a4 4 0 0 1 4-4h9a4 4 0 0 1 4 4v7Z" />
+                <path d="M8 9h8M8 13h5" />
+              </svg>
+            </span>
+            <div>
+              <h2 id="chat-title">Ask about this resume</h2>
+              <p>Answers use only the published details.</p>
+            </div>
+          </div>
+          <button class="clear-button" id="chat-clear" type="button" disabled>Clear</button>
+        </header>
+
+        <p class="chat-privacy" id="chat-privacy">
+          Your questions are sent to the resume assistant with up to six recent chat turns. This in-page history is not saved by your browser or added to the resume.
+        </p>
+
+        <div
+          class="chat-log"
+          id="chat-log"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+          aria-label="Resume assistant conversation"
+        ></div>
+
+        <div class="suggestions" aria-label="Suggested questions">
+          <button class="suggestion" type="button" data-question="What are this candidate's strongest skills?" disabled>Strongest skills</button>
+          <button class="suggestion" type="button" data-question="Summarize this candidate's experience." disabled>Experience summary</button>
+          <button class="suggestion" type="button" data-question="What education is listed on this resume?" disabled>Education</button>
+        </div>
+
+        <form class="chat-form" id="chat-form">
+          <label for="chat-input">Your question</label>
+          <textarea
+            class="chat-input"
+            id="chat-input"
+            name="question"
+            rows="3"
+            maxlength="800"
+            placeholder="Ask about experience, skills, or education…"
+            aria-describedby="chat-helper chat-count"
+            disabled
+            required
+          ></textarea>
+          <div class="chat-helper-row">
+            <span id="chat-helper">Enter to send · Shift+Enter for a new line</span>
+            <span class="chat-count" id="chat-count">0 / 800</span>
+          </div>
+          <div class="chat-actions">
+            <button class="button button--secondary" id="chat-stop" type="button" hidden>Stop</button>
+            <button class="button button--primary" id="chat-send" type="submit" disabled>Send question</button>
+          </div>
+          <p class="chat-status" id="chat-status" role="status" aria-live="polite"></p>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Published with Art Flow Pro. Resume content is provided by the candidate.</p>
+  </footer>
+
+  <noscript>
+    <div class="noscript" role="alert">
+      JavaScript is required to load this published resume and its grounded chat assistant.
+    </div>
+  </noscript>
+
+  <script nonce="{{ csp_nonce }}">
+    (() => {
+      "use strict";
+
+      const RESUME_ID = String({{ resume_id | tojson }});
+      const INITIAL_CANDIDATE_NAME = String({{ candidate_name | tojson }});
+      const MAX_INPUT_CHARS = 800;
+      const MAX_HISTORY_MESSAGES = 12;
+      const MAX_RESPONSE_CHARS = 8000;
+      const RESUME_TIMEOUT_MS = 15000;
+      const CHAT_TIMEOUT_MS = 75000;
+
+      const elements = {
+        resumeCard: document.getElementById("resume-card"),
+        resumeLoading: document.getElementById("resume-loading"),
+        resumeError: document.getElementById("resume-error"),
+        resumeErrorTitle: document.getElementById("resume-error-title"),
+        resumeErrorCopy: document.getElementById("resume-error-copy"),
+        resumeRetry: document.getElementById("resume-retry"),
+        resumeContent: document.getElementById("resume-content"),
+        candidateName: document.getElementById("candidate-name"),
+        candidateTitle: document.getElementById("candidate-title"),
+        resumeSections: document.getElementById("resume-sections"),
+        chatLog: document.getElementById("chat-log"),
+        chatForm: document.getElementById("chat-form"),
+        chatInput: document.getElementById("chat-input"),
+        chatCount: document.getElementById("chat-count"),
+        chatSend: document.getElementById("chat-send"),
+        chatStop: document.getElementById("chat-stop"),
+        chatClear: document.getElementById("chat-clear"),
+        chatStatus: document.getElementById("chat-status"),
+        suggestions: Array.from(document.querySelectorAll("[data-question]")),
+      };
+
+      let currentCandidateName = cleanText(INITIAL_CANDIDATE_NAME, 160) || "Candidate";
+      let resumeReady = false;
+      let chatBusy = false;
+      let chatHistory = [];
+      let activeChatController = null;
+      let activeResumeController = null;
+      let stoppedByVisitor = false;
+
+      function cleanText(value, maxLength = 4000) {
+        if (typeof value !== "string" && typeof value !== "number") return "";
+        return String(value).replace(/\u0000/g, "").trim().slice(0, maxLength);
+      }
+
+      function asObject(value) {
+        return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+      }
+
+      function asArray(value) {
+        return Array.isArray(value) ? value : [];
+      }
+
+      function textList(value, limit, itemLength) {
+        const source = Array.isArray(value)
+          ? value
+          : (typeof value === "string" ? value.split(/\r?\n|,/) : []);
+        return source
+          .slice(0, limit)
+          .map((item) => cleanText(item, itemLength))
+          .filter(Boolean);
+      }
+
+      function normalizeLink(value) {
+        const record = asObject(value);
+        const rawUrl = cleanText(typeof value === "string" ? value : (record.url || record.href), 1000);
+        if (!rawUrl) return null;
+        const label = cleanText(record.label || record.title, 240) || rawUrl;
+        let candidateUrl = rawUrl;
+        if (!/^[a-z][a-z0-9+.-]*:/i.test(candidateUrl)) candidateUrl = "https://" + candidateUrl;
+        try {
+          const parsed = new URL(candidateUrl);
+          if (parsed.protocol !== "https:" && parsed.protocol !== "http:") {
+            return { label, href: "" };
+          }
+          return { label, href: parsed.href };
+        } catch (_) {
+          return { label, href: "" };
+        }
+      }
+
+      function normalizeResume(rawResume) {
+        if (!rawResume || typeof rawResume !== "object" || Array.isArray(rawResume)) {
+          throw new Error("invalid-resume-format");
+        }
+
+        const contact = asObject(rawResume.contact);
+        const experience = asArray(rawResume.experience)
+          .slice(0, 40)
+          .map((value) => {
+            const item = asObject(value);
+            return {
+              role: cleanText(item.role, 240),
+              company: cleanText(item.company, 240),
+              start: cleanText(item.start, 80),
+              end: cleanText(item.end, 80),
+              bullets: textList(item.bullets, 30, 3000),
+            };
+          })
+          .filter((item) => item.role || item.company || item.start || item.end || item.bullets.length);
+
+        const education = asArray(rawResume.education)
+          .slice(0, 40)
+          .map((value) => {
+            const item = asObject(value);
+            return {
+              degree: cleanText(item.degree, 240),
+              school: cleanText(item.school, 240),
+              start: cleanText(item.start, 80),
+              end: cleanText(item.end, 80),
+            };
+          })
+          .filter((item) => item.degree || item.school || item.start || item.end);
+
+        return {
+          name: cleanText(rawResume.name, 160) || currentCandidateName,
+          title: cleanText(rawResume.title, 260),
+          summary: cleanText(rawResume.summary, 12000),
+          contact: {
+            email: cleanText(contact.email, 320),
+            phone: cleanText(contact.phone, 160),
+            location: cleanText(contact.location, 320),
+            links: asArray(contact.links).slice(0, 20).map(normalizeLink).filter(Boolean),
+          },
+          experience,
+          education,
+          skills: textList(rawResume.skills, 100, 180),
+        };
+      }
+
+      function makeElement(tagName, className, text) {
+        const node = document.createElement(tagName);
+        if (className) node.className = className;
+        if (typeof text === "string") node.textContent = text;
+        return node;
+      }
+
+      function makeSection(title) {
+        const section = makeElement("section", "resume-section");
+        const heading = makeElement("h2", "resume-section__title", title);
+        const body = makeElement("div", "resume-section__body");
+        section.append(heading, body);
+        return { section, body };
+      }
+
+      function dateRange(start, end) {
+        if (start && end) return start + " – " + end;
+        return start || end || "";
+      }
+
+      function renderContact(contact) {
+        const entries = [
+          { label: "Email", value: contact.email },
+          { label: "Phone", value: contact.phone },
+          { label: "Location", value: contact.location },
+        ].filter((entry) => entry.value);
+
+        contact.links.forEach((link, index) => {
+          entries.push({ label: index === 0 ? "Link" : "Link " + (index + 1), value: link.label, href: link.href });
+        });
+
+        if (!entries.length) return null;
+        const result = makeSection("Contact");
+        const list = makeElement("dl", "contact-list");
+
+        entries.forEach((entry) => {
+          const item = makeElement("div", "contact-list__item");
+          const term = makeElement("dt", "", entry.label);
+          const description = makeElement("dd");
+          if (entry.href) {
+            const link = makeElement("a", "", entry.value);
+            link.href = entry.href;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            description.appendChild(link);
+          } else {
+            description.textContent = entry.value;
+          }
+          item.append(term, description);
+          list.appendChild(item);
+        });
+
+        result.body.appendChild(list);
+        return result.section;
+      }
+
+      function renderExperience(items) {
+        if (!items.length) return null;
+        const result = makeSection("Experience");
+        const list = makeElement("ol", "timeline");
+
+        items.forEach((item) => {
+          const listItem = makeElement("li", "timeline__item");
+          const headingRow = makeElement("div", "item-heading");
+          const headingText = item.role || item.company || "Experience";
+          const heading = makeElement("h3", "", headingText);
+          const when = dateRange(item.start, item.end);
+          headingRow.appendChild(heading);
+          if (when) headingRow.appendChild(makeElement("p", "item-date", when));
+          listItem.appendChild(headingRow);
+
+          if (item.company && item.company !== headingText) {
+            listItem.appendChild(makeElement("p", "item-subtitle", item.company));
+          }
+
+          if (item.bullets.length) {
+            const bullets = makeElement("ul", "bullet-list");
+            item.bullets.forEach((bullet) => bullets.appendChild(makeElement("li", "", bullet)));
+            listItem.appendChild(bullets);
+          }
+          list.appendChild(listItem);
+        });
+
+        result.body.appendChild(list);
+        return result.section;
+      }
+
+      function renderEducation(items) {
+        if (!items.length) return null;
+        const result = makeSection("Education");
+        const list = makeElement("ol", "timeline");
+
+        items.forEach((item) => {
+          const listItem = makeElement("li", "timeline__item");
+          const headingRow = makeElement("div", "item-heading");
+          const headingText = item.degree || item.school || "Education";
+          const heading = makeElement("h3", "", headingText);
+          const when = dateRange(item.start, item.end);
+          headingRow.appendChild(heading);
+          if (when) headingRow.appendChild(makeElement("p", "item-date", when));
+          listItem.appendChild(headingRow);
+
+          if (item.school && item.school !== headingText) {
+            listItem.appendChild(makeElement("p", "item-subtitle", item.school));
+          }
+          list.appendChild(listItem);
+        });
+
+        result.body.appendChild(list);
+        return result.section;
+      }
+
+      function renderSkills(skills) {
+        if (!skills.length) return null;
+        const result = makeSection("Skills");
+        const list = makeElement("ul", "skills-list");
+        skills.forEach((skill) => list.appendChild(makeElement("li", "", skill)));
+        result.body.appendChild(list);
+        return result.section;
+      }
+
+      function renderResume(resume) {
+        currentCandidateName = resume.name || "Candidate";
+        elements.candidateName.textContent = currentCandidateName;
+        document.title = currentCandidateName + " — Published resume";
+
+        elements.candidateTitle.textContent = resume.title;
+        elements.candidateTitle.hidden = !resume.title;
+        elements.resumeSections.replaceChildren();
+
+        const sections = [];
+        const contactSection = renderContact(resume.contact);
+        if (contactSection) sections.push(contactSection);
+
+        if (resume.summary) {
+          const summary = makeSection("Profile");
+          summary.body.appendChild(makeElement("p", "summary-copy", resume.summary));
+          sections.push(summary.section);
+        }
+
+        const experienceSection = renderExperience(resume.experience);
+        if (experienceSection) sections.push(experienceSection);
+        const educationSection = renderEducation(resume.education);
+        if (educationSection) sections.push(educationSection);
+        const skillsSection = renderSkills(resume.skills);
+        if (skillsSection) sections.push(skillsSection);
+
+        if (!sections.length) {
+          const empty = makeSection("Resume details");
+          empty.body.appendChild(makeElement("p", "empty-copy", "No additional details were included in this published version."));
+          sections.push(empty.section);
+        }
+
+        elements.resumeSections.append(...sections);
+      }
+
+      function addMessage(role, text, stateClass) {
+        const message = makeElement("article", "message message--" + role);
+        if (stateClass) message.classList.add(stateClass);
+        const author = makeElement("span", "message__author", role === "user" ? "You" : "Resume assistant");
+        const body = makeElement("div", "message__body", text);
+        message.append(author, body);
+        elements.chatLog.appendChild(message);
+        elements.chatLog.scrollTop = elements.chatLog.scrollHeight;
+        return { message, body };
+      }
+
+      function resetConversation() {
+        chatHistory = [];
+        elements.chatLog.replaceChildren();
+        const greeting = resumeReady
+          ? "Ask about the experience, skills, or education listed for " + currentCandidateName + ". Answers are grounded only in this published resume."
+          : "The assistant will be ready after the published resume loads.";
+        addMessage("assistant", greeting);
+        elements.chatStatus.textContent = resumeReady ? "Ready for a question." : "Loading resume…";
+      }
+
+      function setChatReady(ready) {
+        resumeReady = ready;
+        elements.chatInput.disabled = !ready || chatBusy;
+        elements.chatSend.disabled = !ready || chatBusy;
+        elements.chatClear.disabled = !ready || chatBusy;
+        elements.suggestions.forEach((button) => {
+          button.disabled = !ready || chatBusy;
+        });
+      }
+
+      function setChatBusy(busy) {
+        chatBusy = busy;
+        elements.chatInput.disabled = busy || !resumeReady;
+        elements.chatSend.disabled = busy || !resumeReady;
+        elements.chatClear.disabled = busy || !resumeReady;
+        elements.chatStop.hidden = !busy;
+        elements.suggestions.forEach((button) => {
+          button.disabled = busy || !resumeReady;
+        });
+        elements.chatSend.textContent = busy ? "Answering…" : "Send question";
+      }
+
+      function updateCharacterCount() {
+        elements.chatCount.textContent = String(elements.chatInput.value.length) + " / " + String(MAX_INPUT_CHARS);
+      }
+
+      function trimCompletedHistory(messages) {
+        const trimmed = messages.slice(-MAX_HISTORY_MESSAGES);
+        while (trimmed.length && trimmed[0].role !== "user") trimmed.shift();
+        return trimmed;
+      }
+
+      function getLoadError(kind) {
+        if (kind === "not-found") {
+          return {
+            title: "Resume unavailable",
+            copy: "This published resume may have expired or been removed. Check that the link is complete, then try again.",
+          };
+        }
+        if (kind === "timeout") {
+          return {
+            title: "Loading took too long",
+            copy: "The resume server did not respond in time. Check your connection and try again.",
+          };
+        }
+        if (kind === "invalid") {
+          return {
+            title: "Resume could not be displayed",
+            copy: "The published data was not in a supported resume format. Ask the candidate for a new link.",
+          };
+        }
+        return {
+          title: "Could not load the resume",
+          copy: navigator.onLine
+            ? "A temporary problem prevented this resume from loading. Please try again."
+            : "You appear to be offline. Reconnect to the internet, then try again.",
+        };
+      }
+
+      function showLoadError(kind) {
+        const copy = getLoadError(kind);
+        elements.resumeErrorTitle.textContent = copy.title;
+        elements.resumeErrorCopy.textContent = copy.copy;
+        elements.resumeLoading.hidden = true;
+        elements.resumeContent.hidden = true;
+        elements.resumeError.hidden = false;
+        elements.resumeCard.setAttribute("aria-busy", "false");
+        setChatReady(false);
+        resetConversation();
+      }
+
+      async function loadResume() {
+        if (activeResumeController) activeResumeController.abort();
+        activeResumeController = new AbortController();
+        const controller = activeResumeController;
+        let timedOut = false;
+        const timer = window.setTimeout(() => {
+          timedOut = true;
+          controller.abort();
+        }, RESUME_TIMEOUT_MS);
+
+        elements.resumeRetry.disabled = true;
+        elements.resumeError.hidden = true;
+        elements.resumeContent.hidden = true;
+        elements.resumeLoading.hidden = false;
+        elements.resumeCard.setAttribute("aria-busy", "true");
+        setChatReady(false);
+        elements.chatStatus.textContent = "Loading resume…";
+
+        try {
+          const response = await fetch("/api/resume/" + encodeURIComponent(RESUME_ID), {
+            method: "GET",
+            headers: { "Accept": "application/json" },
+            cache: "no-store",
+            credentials: "same-origin",
+            signal: controller.signal,
+          });
+
+          if (response.status === 404) throw new Error("not-found");
+          if (!response.ok) throw new Error("request-failed");
+          const data = await response.json().catch(() => null);
+          if (!data || !("resume" in data)) throw new Error("invalid");
+
+          let resume;
+          try {
+            resume = normalizeResume(data.resume);
+          } catch (_) {
+            throw new Error("invalid");
+          }
+
+          renderResume(resume);
+          elements.resumeLoading.hidden = true;
+          elements.resumeError.hidden = true;
+          elements.resumeContent.hidden = false;
+          elements.resumeCard.setAttribute("aria-busy", "false");
+          setChatReady(true);
+          resetConversation();
+        } catch (error) {
+          if (controller.signal.aborted && controller !== activeResumeController) return;
+          const kind = timedOut ? "timeout" : cleanText(error && error.message, 40);
+          showLoadError(kind === "not-found" || kind === "invalid" ? kind : (timedOut ? "timeout" : "network"));
+        } finally {
+          window.clearTimeout(timer);
+          if (controller === activeResumeController) activeResumeController = null;
+          elements.resumeRetry.disabled = false;
+        }
+      }
+
+      function parseSseBlock(block, handlers) {
+        const dataLines = [];
+        block.split("\n").forEach((line) => {
+          if (line.startsWith("data:")) dataLines.push(line.slice(5).replace(/^ /, ""));
+        });
+        if (!dataLines.length) return false;
+        const payload = dataLines.join("\n").trim();
+        if (payload === "[DONE]") return true;
+
+        try {
+          const event = JSON.parse(payload);
+          if (event && typeof event.delta === "string") handlers.onDelta(event.delta);
+          if (event && event.error) handlers.onError();
+        } catch (_) {
+          handlers.onMalformed();
+        }
+        return false;
+      }
+
+      async function consumeSse(response, onDelta) {
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let carry = "";
+        let streamReportedError = false;
+        let malformedFrames = 0;
+
+        const handlers = {
+          onDelta,
+          onError: () => { streamReportedError = true; },
+          onMalformed: () => { malformedFrames += 1; },
+        };
+
+        while (true) {
+          const result = await reader.read();
+          if (result.done) break;
+          carry += decoder.decode(result.value, { stream: true });
+          carry = carry.replace(/\r\n/g, "\n");
+
+          let boundary = carry.indexOf("\n\n");
+          while (boundary !== -1) {
+            const block = carry.slice(0, boundary);
+            carry = carry.slice(boundary + 2);
+            const done = parseSseBlock(block, handlers);
+            if (done) {
+              await reader.cancel().catch(() => undefined);
+              return { streamReportedError, malformedFrames };
+            }
+            boundary = carry.indexOf("\n\n");
+          }
+        }
+
+        carry += decoder.decode();
+        if (carry.trim()) parseSseBlock(carry, handlers);
+        return { streamReportedError, malformedFrames };
+      }
+
+      function chatErrorCopy(error, timedOut) {
+        if (stoppedByVisitor) return "Response stopped.";
+        if (timedOut) return "The assistant took too long to respond. Please try again.";
+        if (!navigator.onLine) return "You appear to be offline. Reconnect and try again.";
+        if (error && error.name === "AbortError") return "The request was interrupted. Please try again.";
+        if (error && error.status === 404) return "This resume is no longer available.";
+        if (error && (error.status === 429 || error.status === 503)) return "The resume assistant is busy right now. Please try again shortly.";
+        return "The resume assistant could not answer that question. Please try again.";
+      }
+
+      async function askResume(questionValue) {
+        const question = cleanText(questionValue, MAX_INPUT_CHARS);
+        if (!question || chatBusy || !resumeReady) return;
+
+        const outboundMessages = [
+          ...chatHistory,
+          { role: "user", content: question },
+        ];
+        addMessage("user", question);
+        const assistantMessage = addMessage("assistant", "Thinking…", "message--pending");
+        elements.chatInput.value = "";
+        updateCharacterCount();
+        setChatBusy(true);
+        elements.chatStatus.textContent = "The assistant is preparing an answer.";
+
+        activeChatController = new AbortController();
+        const controller = activeChatController;
+        stoppedByVisitor = false;
+        let timedOut = false;
+        let answer = "";
+        let renderQueued = false;
+        const timeout = window.setTimeout(() => {
+          timedOut = true;
+          controller.abort();
+        }, CHAT_TIMEOUT_MS);
+
+        function renderAnswer() {
+          if (renderQueued) return;
+          renderQueued = true;
+          window.requestAnimationFrame(() => {
+            assistantMessage.body.textContent = answer || "Thinking…";
+            elements.chatLog.scrollTop = elements.chatLog.scrollHeight;
+            renderQueued = false;
+          });
+        }
+
+        try {
+          const response = await fetch("/api/resume-chat/" + encodeURIComponent(RESUME_ID), {
+            method: "POST",
+            headers: {
+              "Accept": "text/event-stream",
+              "Content-Type": "application/json",
+            },
+            credentials: "same-origin",
+            cache: "no-store",
+            signal: controller.signal,
+            body: JSON.stringify({ messages: outboundMessages }),
+          });
+
+          if (!response.ok || !response.body) {
+            const requestError = new Error("chat-request-failed");
+            requestError.status = response.status;
+            throw requestError;
+          }
+
+          const contentType = response.headers.get("content-type") || "";
+          if (!contentType.toLowerCase().includes("text/event-stream")) {
+            throw new Error("unexpected-chat-response");
+          }
+
+          const streamResult = await consumeSse(response, (delta) => {
+            if (!delta || answer.length >= MAX_RESPONSE_CHARS) return;
+            answer += delta.slice(0, MAX_RESPONSE_CHARS - answer.length);
+            renderAnswer();
+          });
+
+          if (streamResult.streamReportedError) throw new Error("stream-reported-error");
+          answer = answer.trim();
+          if (!answer) throw new Error("empty-chat-response");
+
+          assistantMessage.body.textContent = answer;
+          assistantMessage.message.classList.remove("message--pending");
+          chatHistory = trimCompletedHistory([
+            ...outboundMessages,
+            { role: "assistant", content: answer },
+          ]);
+          elements.chatStatus.textContent = "Answer complete. Only the six most recent turns are kept in this page.";
+        } catch (error) {
+          assistantMessage.message.classList.remove("message--pending");
+          const errorCopy = chatErrorCopy(error, timedOut);
+          if (stoppedByVisitor && answer.trim()) {
+            assistantMessage.body.textContent = answer.trim() + "\n\n[Response stopped.]";
+          } else {
+            assistantMessage.body.textContent = errorCopy;
+            if (!stoppedByVisitor) assistantMessage.message.classList.add("message--error");
+          }
+          elements.chatStatus.textContent = errorCopy;
+        } finally {
+          window.clearTimeout(timeout);
+          if (controller === activeChatController) activeChatController = null;
+          setChatBusy(false);
+          if (resumeReady) elements.chatInput.focus({ preventScroll: true });
+        }
+      }
+
+      elements.resumeRetry.addEventListener("click", loadResume);
+
+      elements.chatForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        askResume(elements.chatInput.value);
+      });
+
+      elements.chatInput.addEventListener("input", updateCharacterCount);
+      elements.chatInput.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && !event.shiftKey && !event.isComposing) {
+          event.preventDefault();
+          elements.chatForm.requestSubmit();
+        }
+      });
+
+      elements.suggestions.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.disabled) return;
+          elements.chatInput.value = button.dataset.question || "";
+          updateCharacterCount();
+          elements.chatForm.requestSubmit();
+        });
+      });
+
+      elements.chatClear.addEventListener("click", () => {
+        if (chatBusy) return;
+        resetConversation();
+        elements.chatInput.focus();
+      });
+
+      elements.chatStop.addEventListener("click", () => {
+        if (!activeChatController) return;
+        stoppedByVisitor = true;
+        activeChatController.abort();
+      });
+
+      window.addEventListener("pagehide", () => {
+        if (activeResumeController) activeResumeController.abort();
+        if (activeChatController) activeChatController.abort();
+      });
+
+      elements.candidateName.textContent = currentCandidateName;
+      document.title = currentCandidateName + " — Published resume";
+      updateCharacterCount();
+      resetConversation();
+      loadResume();
+    })();
+  </script>
+</body>
+</html>

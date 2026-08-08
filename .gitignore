@@ -1,0 +1,47 @@
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+service-account*.json
+secrets.*
+private.*
+
+# Local application data
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+uploads/
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+dist/
+build/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local safety and working files
+.aionex/
+tmp/
+temp/
+cache/
+text
