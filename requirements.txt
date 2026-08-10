@@ -1,5 +1,5 @@
 # Direct runtime requirements. Exact transitive versions are in requirements-lock.txt.
-fastapi==0.139.2
+fastapi==0.141.1
 httpx==0.28.1
 httpx-socks==0.11.0
 jinja2==3.1.6
